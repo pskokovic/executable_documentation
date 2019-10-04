@@ -4,8 +4,8 @@ import com.qualityhouse.course.automation.execdocs.pageobjects.CommonPageObjects
 import com.qualityhouse.course.automation.execdocs.pageobjects.LoginPageObject;
 import com.qualityhouse.course.automation.execdocs.support.SharedDriver;
 import com.qualityhouse.course.automation.execdocs.testdata.UsersTestData;
-import cucumber.api.java.After;
-import cucumber.api.java.en.*;
+import io.cucumber.java.After;
+import io.cucumber.java.en.*;
 import org.junit.Assert;
 import org.openqa.selenium.WebDriver;
 

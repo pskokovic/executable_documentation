@@ -1,7 +1,8 @@
 package com.qualityhouse.course.automation.execdocs.support;
 
 import cucumber.api.Scenario;
-import cucumber.api.java.*;
+import io.cucumber.java.After;
+import io.cucumber.java.Before;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -33,7 +34,7 @@ import java.util.concurrent.TimeUnit;
 public class SharedDriver extends EventFiringWebDriver {
     private static final WebDriver REAL_DRIVER;
 
-    public static final String appURL = "https://enterprise-demo.orangehrmlive.com/";
+    public static final String appURL = "https://acme.qualityhouse.com/build3/index.php";
 
     private static final Thread CLOSE_THREAD = new Thread() {
         @Override
