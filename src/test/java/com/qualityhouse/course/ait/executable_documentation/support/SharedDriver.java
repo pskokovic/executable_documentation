@@ -1,8 +1,9 @@
-package com.qualityhouse.course.automation.execdocs.support;
+package com.qualityhouse.course.ait.executable_documentation.support;
 
-import cucumber.api.Scenario;
+//import cucumber.api.Scenario;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.Scenario;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebDriverException;
@@ -72,7 +73,7 @@ public class SharedDriver extends EventFiringWebDriver {
     public void embedScreenshot(Scenario scenario) {
         try {
             byte[] screenshot = getScreenshotAs(OutputType.BYTES);
-            scenario.embed(screenshot, "image/png");
+            scenario.attach(screenshot, "image/png", "screenshot");
         } catch (WebDriverException somePlatformsDontSupportScreenshots) {
             System.err.println(somePlatformsDontSupportScreenshots.getMessage());
         }

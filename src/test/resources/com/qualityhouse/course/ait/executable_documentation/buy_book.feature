@@ -1,6 +1,6 @@
 Feature: Buy books
 
-# todo: Exercise - implement scenario steps
+# todo: Exercise 2 - implement scenario steps
 
   Scenario: Buy a book, whole process
     Given I am logged in as User1

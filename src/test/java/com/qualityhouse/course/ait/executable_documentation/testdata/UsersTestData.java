@@ -1,4 +1,4 @@
-package com.qualityhouse.course.automation.execdocs.testdata;
+package com.qualityhouse.course.ait.executable_documentation.testdata;
 
 import java.util.HashMap;
 

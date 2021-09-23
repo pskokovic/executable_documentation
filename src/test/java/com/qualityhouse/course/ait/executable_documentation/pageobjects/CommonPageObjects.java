@@ -1,6 +1,6 @@
-package com.qualityhouse.course.automation.execdocs.pageobjects;
+package com.qualityhouse.course.ait.executable_documentation.pageobjects;
 
-import com.qualityhouse.course.automation.execdocs.support.Utils;
+import com.qualityhouse.course.ait.executable_documentation.support.Utils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 

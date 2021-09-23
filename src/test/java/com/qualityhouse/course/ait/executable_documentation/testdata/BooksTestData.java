@@ -1,4 +1,4 @@
-package com.qualityhouse.course.automation.execdocs.testdata;
+package com.qualityhouse.course.ait.executable_documentation.testdata;
 
 import java.util.Hashtable;
 
@@ -41,7 +41,7 @@ public class BooksTestData {
 
     /* list of books' categories actions */
 
-    public static String getBooksCategoryURLParameter(String category) { return booksCategories.get(category); };
+    public static String getBooksCategoryURLParameter(String category) { return booksCategories.get(category); }
 
     /* list of books' actions */
 

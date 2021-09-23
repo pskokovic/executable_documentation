@@ -1,4 +1,4 @@
-package com.qualityhouse.course.automation.execdocs.support;
+package com.qualityhouse.course.ait.executable_documentation.support;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;

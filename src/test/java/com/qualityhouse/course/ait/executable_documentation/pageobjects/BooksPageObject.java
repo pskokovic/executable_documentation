@@ -1,7 +1,7 @@
-package com.qualityhouse.course.automation.execdocs.pageobjects;
+package com.qualityhouse.course.ait.executable_documentation.pageobjects;
 
-import com.qualityhouse.course.automation.execdocs.support.Utils;
-import com.qualityhouse.course.automation.execdocs.testdata.BooksTestData;
+import com.qualityhouse.course.ait.executable_documentation.support.Utils;
+import com.qualityhouse.course.ait.executable_documentation.testdata.BooksTestData;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -114,10 +114,10 @@ public class BooksPageObject {
         search();
     }
 
-    public Boolean isBookInList(String title) {
+    public boolean isBookInList(String title) {
         List<WebElement> listedBooks = listOfBooks();
 
-        Boolean bookFound = false;
+        boolean bookFound = false;
 
         for (WebElement b : listedBooks) {
             if (b.findElement(lblBookTitle).getText().equals(title)) {bookFound = true; }
