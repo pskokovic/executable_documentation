@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class Utils {
 
     private static final int elementLocatingTimeout = 10;
@@ -28,7 +30,7 @@ public class Utils {
     }
 
     public static WebElement waitForElement(WebDriver webDriver, By selector, int seconds) {
-        return new WebDriverWait(webDriver, seconds).until(ExpectedConditions.presenceOfElementLocated(selector));
+        return new WebDriverWait(webDriver, Duration.ofSeconds(seconds)).until(ExpectedConditions.presenceOfElementLocated(selector));
     }
 
     // wait for element on page to become clickable
@@ -37,6 +39,6 @@ public class Utils {
     }
 
     public static WebElement waitForClicableElement(WebDriver webDriver, By selector, int seconds) {
-        return new WebDriverWait(webDriver, seconds).until(ExpectedConditions.elementToBeClickable(selector));
+        return new WebDriverWait(webDriver, Duration.ofSeconds(seconds)).until(ExpectedConditions.elementToBeClickable(selector));
     }
 }
