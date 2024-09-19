@@ -1,55 +1,106 @@
 package com.qualityhouse.course.ait.executable_documentation.testdata;
 
+import com.qualityhouse.course.ait.executable_documentation.testdata.models.User;
+
 import java.util.HashMap;
 
 public class UsersTestData {
 
-    private static HashMap<String, String[]> users = new HashMap<String, String[]>();
+    private static HashMap<String, User> users = new HashMap<>();
 
     static {
-        users.put("User1", new String[] {"student1", "stpass1", "Student One", "student1@example.com", "+111", "Student Str. 1"});
-        users.put("User2", new String[] {"student2", "stpass2", "Student Two", "student2@example.com", "+222", "Student Str. 2"});
-        users.put("User3", new String[] {"student3", "stpass3", "Student Three", "student3@example.com", "+333", "Student Str. 3"});
-        users.put("User4", new String[] {"student4", "stpass4", "Student Four", "student4@example.com", "+444", "Student Str. 4"});
-        users.put("User5", new String[] {"student5", "stpass5", "Student Five", "student5@example.com", "+555", "Student Str. 5"});
+        // Populate users using the builder pattern
+        users.put("User1", new User.UserBuilder()
+                .setUsername("student1")
+                .setPassword("stpass1")
+                .setName("Student One")
+                .setEmail("student1@example.com")
+                .setPhone("+111")
+                .setAddress("Student Str. 1")
+                .build());
 
-        users.put("Invalid User", new String[] {"student1","wrong password","","","",""});
+        users.put("User2", new User.UserBuilder()
+                .setUsername("student2")
+                .setPassword("stpass2")
+                .setName("Student Two")
+                .setEmail("student2@example.com")
+                .setPhone("+222")
+                .setAddress("Student Str. 2")
+                .build());
+
+        users.put("User3", new User.UserBuilder()
+                .setUsername("student3")
+                .setPassword("stpass3")
+                .setName("Student Three")
+                .setEmail("student3@example.com")
+                .setPhone("+333")
+                .setAddress("Student Str. 3")
+                .build());
+
+        users.put("User4", new User.UserBuilder()
+                .setUsername("student4")
+                .setPassword("stpass4")
+                .setName("Student Four")
+                .setEmail("student4@example.com")
+                .setPhone("+444")
+                .setAddress("Student Str. 4")
+                .build());
+
+        users.put("User5", new User.UserBuilder()
+                .setUsername("student5")
+                .setPassword("stpass5")
+                .setName("Student Five")
+                .setEmail("student5@example.com")
+                .setPhone("+555")
+                .setAddress("Student Str. 5")
+                .build());
+
+        users.put("Invalid User", new User.UserBuilder()
+                .setUsername("student1")
+                .setPassword("wrong password")
+                .build());
     }
 
-    /* users actions */
+    /* User actions */
     public static String getUsername(String user) {
-        if (!users.containsKey(user))
+        if (!users.containsKey(user)) {
             throw new NullPointerException("User '" + user + "' not found.");
-        return users.get(user)[0];
+        }
+        return users.get(user).getUsername();
     }
 
     public static String getPassword(String user) {
-        if (!users.containsKey(user))
+        if (!users.containsKey(user)) {
             throw new NullPointerException("User '" + user + "' not found.");
-        return users.get(user)[1];
+        }
+        return users.get(user).getPassword();
     }
 
     public static String getName(String user) {
-        if (!users.containsKey(user))
+        if (!users.containsKey(user)) {
             throw new NullPointerException("User '" + user + "' not found.");
-        return users.get(user)[2];
+        }
+        return users.get(user).getName();
     }
 
     public static String getEmail(String user) {
-        if (!users.containsKey(user))
+        if (!users.containsKey(user)) {
             throw new NullPointerException("User '" + user + "' not found.");
-        return users.get(user)[3];
+        }
+        return users.get(user).getEmail();
     }
 
     public static String getPhone(String user) {
-        if (!users.containsKey(user))
+        if (!users.containsKey(user)) {
             throw new NullPointerException("User '" + user + "' not found.");
-        return users.get(user)[4];
+        }
+        return users.get(user).getPhone();
     }
 
     public static String getAddress(String user) {
-        if (!users.containsKey(user))
+        if (!users.containsKey(user)) {
             throw new NullPointerException("User '" + user + "' not found.");
-        return users.get(user)[5];
+        }
+        return users.get(user).getAddress();
     }
 }

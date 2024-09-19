@@ -1,12 +1,14 @@
 package com.qualityhouse.course.ait.executable_documentation.testdata;
 
-import java.util.Hashtable;
+import com.qualityhouse.course.ait.executable_documentation.testdata.models.Book;
+
+import java.util.HashMap;
 
 public class BooksTestData {
 
-    private static Hashtable<String, String> booksCategories = new Hashtable<String, String>();
+    private static HashMap<String, Book> books = new HashMap<>();
 
-    private static Hashtable<String, String[]> books = new Hashtable<String, String[]>();
+    private static HashMap<String, String> booksCategories = new HashMap<>();
 
     static {
         /* list all books' categories */
@@ -33,28 +35,65 @@ public class BooksTestData {
         booksCategories.put("Science & nature", "books-science-nature");
         booksCategories.put("Science fiction", "books-science-fiction");
 
-        /* list all books */
-        books.put("Autumn Colors", new String[] {"Art","Diana Jones", "Nature Books Ltd.", "55134124", "12.99", "6"});
-        books.put("Yellow Flower Songs", new String[] {"Children’s books","Lilly Penny", "Little World", "622513423", "4.99", "8"});
-        books.put("Agile Technologies", new String[] {"Computers","William Nelson", "Bit", "5628423724", "23.49", "12"});
+        // Populate books using the builder pattern
+        books.put("Autumn Colors", new Book.BookBuilder()
+                .setTitle("Autumn Colors")
+                .setCategory("Art")
+                .setAuthor("Diana Jones")
+                .setPublisher("Nature Books Ltd.")
+                .setIsbn("55134124")
+                .setPrice("12.99")
+                .setProductId("6")
+                .build());
+
+        books.put("Yellow Flower Songs", new Book.BookBuilder()
+                .setTitle("Yellow Flower Songs")
+                .setCategory("Children’s books")
+                .setAuthor("Lilly Penny")
+                .setPublisher("Little World")
+                .setIsbn("622513423")
+                .setPrice("4.99")
+                .setProductId("8")
+                .build());
+
+        books.put("Agile Technologies", new Book.BookBuilder()
+                .setTitle("Agile Technologies")
+                .setCategory("Computers")
+                .setAuthor("William Nelson")
+                .setPublisher("Bit")
+                .setIsbn("5628423724")
+                .setPrice("23.49")
+                .setProductId("12")
+                .build());
     }
 
-    /* list of books' categories actions */
+    /* Books' categories actions */
+    public static String getBooksCategoryURLParameter(String category) {
+        return booksCategories.get(category);
+    }
 
-    public static String getBooksCategoryURLParameter(String category) { return booksCategories.get(category); }
+    /* Books' actions */
+    public static String getBookCategory(String title) {
+        return books.get(title).getCategory();
+    }
 
-    /* list of books' actions */
+    public static String getBookAuthor(String title) {
+        return books.get(title).getAuthor();
+    }
 
-    public static String getBookCategory(String title) { return books.get(title)[0]; }
+    public static String getBookPublisher(String title) {
+        return books.get(title).getPublisher();
+    }
 
-    public static String getBookAuthor(String title) { return books.get(title)[1]; }
+    public static String getBookISBN(String title) {
+        return books.get(title).getIsbn();
+    }
 
-    public static String getBookPublisher(String title) { return books.get(title)[2]; }
+    public static String getBookPrice(String title) {
+        return books.get(title).getPrice();
+    }
 
-    public static String getBookISBN(String title) { return books.get(title)[3]; }
-
-    public static String getBookPrice(String title) { return books.get(title)[4]; }
-
-    public static String getBookProductId(String title) { return books.get(title)[5]; }
-
+    public static String getBookProductId(String title) {
+        return books.get(title).getProductId();
+    }
 }

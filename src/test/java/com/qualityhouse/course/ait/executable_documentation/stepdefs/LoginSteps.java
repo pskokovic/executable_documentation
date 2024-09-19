@@ -1,22 +1,23 @@
 package com.qualityhouse.course.ait.executable_documentation.stepdefs;
 
-import com.qualityhouse.course.ait.executable_documentation.support.SharedDriver;
-import com.qualityhouse.course.ait.executable_documentation.testdata.UsersTestData;
 import com.qualityhouse.course.ait.executable_documentation.pageobjects.CommonPageObjects;
 import com.qualityhouse.course.ait.executable_documentation.pageobjects.LoginPageObject;
-import io.cucumber.java.*;
-import io.cucumber.java.en.*;
-import org.junit.Assert;
+import com.qualityhouse.course.ait.executable_documentation.support.SharedDriver;
+import com.qualityhouse.course.ait.executable_documentation.testdata.UsersTestData;
+import io.cucumber.java.en.And;
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
-
+import org.testng.Assert;
 
 public class LoginSteps {
 
-    private WebDriver driver;
-    private LoginPageObject loginPage;
-    private CommonPageObjects common;
+    private final LoginPageObject loginPage;
+    private final CommonPageObjects common;
 
-    public LoginSteps(SharedDriver webDriver) {
+    public LoginSteps() {
+        WebDriver webDriver = SharedDriver.getDriver();
         loginPage = new LoginPageObject(webDriver);
         common = new CommonPageObjects(webDriver);
     }
@@ -25,7 +26,7 @@ public class LoginSteps {
     public void iAmOnTheLoginPage(String pageName) {
         common.openApplication();
         if (pageName.equals("Login")) { loginPage.open(); }
-        Assert.assertEquals("This is not login page!", true, loginPage.isLoginPageDisplayed());
+        Assert.assertEquals(true, loginPage.isLoginPageDisplayed(), "This is not login page!");
     }
 
     @When("^I enter (.*) credentials$")
@@ -41,7 +42,7 @@ public class LoginSteps {
 
     @Then("^I am logged in$")
     public void iAmLoggedIn() {
-        Assert.assertEquals("User is not logged in!", true, common.isUserLoggedIn());
+        Assert.assertEquals(true, common.isUserLoggedIn(), "User is not logged in!");
     }
 
     @When("^I log in as (.*)$")
@@ -49,8 +50,4 @@ public class LoginSteps {
         loginPage.loginAsUser(user);
     }
 
-    @After
-    public void teardown() {
-        common.logout();
-    }
 }

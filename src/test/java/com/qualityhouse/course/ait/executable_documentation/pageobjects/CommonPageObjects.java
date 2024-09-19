@@ -6,9 +6,11 @@ import org.openqa.selenium.WebDriver;
 
 public class CommonPageObjects {
 
-    private WebDriver driver;
+    private final WebDriver driver;
 
-    public CommonPageObjects (WebDriver driver) { this.driver = driver; }
+    public CommonPageObjects(WebDriver driver) {
+        this.driver = driver;
+    }
 
     /* list of page components */
 

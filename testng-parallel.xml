@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Cucumber TestNG Suite" parallel="tests" thread-count="2">
+    <test name="Cucumber Test Single">
+        <classes>
+            <class name="com.qualityhouse.course.ait.executable_documentation.runners.RunCucumberBasicTest"/>
+        </classes>
+    </test>
+    <test name="Cucumber Test Outline">
+        <classes>
+            <class name="com.qualityhouse.course.ait.executable_documentation.runners.RunCucumberOutlineTest"/>
+        </classes>
+    </test>
+</suite>
