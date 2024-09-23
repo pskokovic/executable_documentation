@@ -4,6 +4,6 @@ Feature: Modify logged in user's details
 
   Scenario: Modify valid user's details
     Given I am logged in
-    When I am on the EditProfile page
-    And I modify my profile details
+    And I am on the EditProfile page
+    When I modify my profile details
     Then My profile details are saved
